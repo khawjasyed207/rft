@@ -642,7 +642,27 @@ textarea {
     visibility: visible;
     right: 70px;
 }
+.email-link {
+    color: var(--dark);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
 
+.email-link:hover {
+    color: var(--primary);
+}
+
+.email-link .fab.fa-google {
+    color: #DB4437; /* Gmail red color */
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.email-link:hover .fab.fa-google {
+    transform: scale(1.2);
+}
 footer {
    background-color: rgb(219, 211, 230);
     color: rgb(119, 106, 106);
