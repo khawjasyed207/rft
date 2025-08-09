@@ -260,16 +260,18 @@ nav {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
     margin-top: 30px;
+    justify-content: center;
 }
 
 .feature-card {
-    background: var(--light);
+   background: var(--light);
     padding: 15px;
     border-radius: 8px;
     width: 200px;
     height: 250px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     transition: transform 0.3s;
+    margin: 0 auto; /* Centers cards in their grid cells */
 }
 
 .feature-card:hover {
@@ -427,25 +429,36 @@ nav {
 }
 
 .download-pdf {
-    display: inline-flex;
+     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: #0066cc;
+    background-color: rgb(219, 211, 230); /* Your requested color */
+    color: #333; /* Dark text for contrast */
+    padding: 10px 20px;
+    border-radius: 4px;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
-    text-transform: capitalize;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 15px 0; /* Add some spacing */
 }
 
 .download-pdf:hover {
     color: #004499;
     text-decoration: underline;
+    background-color: rgba(219, 211, 230, 0.8); /* Slightly transparent on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    color: #000; /* Darker text on hover */
 }
 
 .download-pdf i {
     font-size: 0.9em;
+    transition: transform 0.3s ease;
 }
-
+.download-pdf:hover i {
+    transform: scale(1.1); /* Slight icon animation */
+}
 .contact {
     background-color: white;
 }
@@ -455,7 +468,55 @@ nav {
     grid-template-columns: 1fr 1fr;
     gap: 50px;
 }
+ .catalogue-btn {
+    background-color: rgb(219, 211, 230);
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 15px 0;
+}
+.catalogue-btn:hover {
+    background-color: rgba(219, 211, 230, 0.8);
+    transform: translateY(-2px);
+    color: #000;
+}
+.footer-links h3 {
+    margin-bottom: 10px; /* Reduced from 20px */
+}
 
+.footer-links li, .footer-links p {
+    margin-bottom: 5px; /* Reduced spacing */
+}
+.social-links a {
+    font-size: 1rem; /* Reduced from 1.2rem */
+}
+.footer-address {
+    margin: 15px 0;
+}
+
+/* Contact info styling */
+.footer-contact ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-contact li {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+}
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
 .contact-info {
     display: flex;
     flex-direction: column;
@@ -666,14 +727,21 @@ textarea {
 footer {
    background-color: rgb(219, 211, 230);
     color: rgb(119, 106, 106);
-    padding: 60px 0 20px;
+    padding: 30px 0 15px;
 }
 
 .footer-content {
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    /*margin-bottom: 40px;*/
+    justify-content: space-between;
+    align-items: flex-start;
     gap: 40px;
     margin-bottom: 40px;
+}
+.footer-column {
+    flex: 1;
 }
 
 .footer-logo {
@@ -683,10 +751,17 @@ footer {
     margin-bottom: 20px;
     display: block;
 }
+footer p {
+    margin-bottom: 5px; /* Reduced from 15px */
+    line-height: 1.4; /* Tighter line spacing */
+}
 
 .footer-links h3 {
     color: white;
     margin-bottom: 20px;
+}
+footer div > p {
+    margin-bottom: 2px; /* Even tighter for address lines */
 }
 
 .footer-links ul {
@@ -711,7 +786,7 @@ footer {
 .social-links {
     display: flex;
     gap: 15px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .social-links a {
@@ -721,10 +796,10 @@ footer {
 
 .copyright {
     text-align: center;
-    padding-top: 20px;
+    padding-top: 10px;
      border-top: 1px solid rgba(0,0,0,0.1);
     color: #ccc;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .feature-icon, .product-img {
@@ -810,6 +885,7 @@ footer {
 }
 
 @media (max-width: 768px) {
+
     .nav-links {
         position: fixed;
         top: 80px;
@@ -818,10 +894,295 @@ footer {
         width: 100%;
         flex-direction: column;
         align-items: center;
-        padding: 30px 0;
+        padding: 20px 0;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
         transition: left 0.3s;
     }
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .footer-contact {
+        text-align: left;
+        margin-left: 0;
+    }
+    
+    .footer-contact li {
+        justify-content: flex-start;
+    }
+     h1, h2, h3 {
+        word-wrap: break-word;
+    }
+    
+    .product-info p {
+        -webkit-line-clamp: 3;
+    }
+    .industry-tags {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .industry-tag {
+        width: 100%;
+        max-width: 250px;
+        margin-bottom: 8px;
+    }
+     header {
+        padding: 0 15px;
+        height: 60px;
+    }
+    
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.contact-form h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.textarea-container {
+    position: relative;
+}
+
+.textarea-container textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.attachment-icon {
+    position: absolute;
+    right: 10px;
+    bottom: 25px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #666;
+}
+
+.send-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.send-button:hover {
+    background-color: #45a049;
+}
+    .logo-image {
+        height: 40px;
+        margin-top: 10px;
+    }
+    
+    /* Hero section */
+    .hero {
+        padding: 120px 0 60px;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    .features-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+    
+    .feature-card {
+        margin: 0 auto 15px !important;
+        width: 90% !important;
+        height: auto !important;
+    }
+    
+    /* Features grid */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .feature-card {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+    
+    /* About section */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        height: auto;
+    }
+    
+    .about-img {
+        order: -1;
+    }
+    
+    .about-img img {
+        height: auto;
+    }
+    
+    /* Industries section */
+    .industry-tags {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .industry-tag {
+        width: 100%;
+        max-width: 250px;
+        margin-bottom: 8px;
+    }
+    
+    /* Products grid */
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-card {
+        height: auto;
+    }
+    
+    /* Contact section */
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    /* Footer adjustments */
+    footer {
+        padding: 30px 0 10px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .footer-contact {
+    text-align: right;
+    margin-left: auto;
+}
+    /* Mobile menu */
+    .mobile-menu {
+        display: block;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        transition: left 0.3s ease;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links li {
+        margin: 10px 0;
+    }
+}
+
+
+    /* Adjustments for smaller screens */
+@media (max-width: 1199px) {
+    .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+}
+ .footer-content {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .btn, .industry-tag, .nav-links a {
+        min-height: 44px; /* Recommended minimum touch target size */
+        padding: 12px 20px;
+    }
+    @media (max-width: 768px) {
+    .product-img img, .about-img img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+}
+
+@media (max-width: 480px) {
+h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.2rem; }
+    p, li { font-size: 0.9rem; }
+    section {
+        padding: 40px 0;
+    }
+    
+    .feature-card {
+        padding: 15px;
+    }
+    
+    /* Form elements */
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px 12px;
+        margin-bottom: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .textarea-container {
+        width: 100%;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 10px 20px;
+    }
+    
+    /* Hero adjustments */
+    .hero {
+        padding: 100px 0 40px;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
     
     .nav-links.active {
         left: 0;

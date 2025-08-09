@@ -268,4 +268,28 @@ function filterProducts() {
         card.style.opacity = shouldShow ? '1' : '0';
         card.style.transition = 'all 0.3s ease';
     });
+    document.addEventListener('DOMContentLoaded', function() {
+    // Initialize EmailJS with your User ID
+    emailjs.init('YOUR_EMAILJS_USER_ID'); // Replace with your actual User ID
+    
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get the form data
+        const formData = new FormData(contactForm);
+        const formObject = Object.fromEntries(formData.entries());
+        
+        // Send the email
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formObject)
+            .then(function(response) {
+                alert('Message sent successfully!');
+                contactForm.reset();
+            }, function(error) {
+                alert('Failed to send message. Please try again later.');
+                console.error('EmailJS Error:', error);
+            });
+    });
+});
 }
