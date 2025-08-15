@@ -41,7 +41,7 @@
       <!-- <a href="Kifth Brochure Corrected File[1].pdf" download="KIFTH_Brochure.pdf" class="download-brochure">
             <i class="fas fa-download"></i> Download Brochure
         </a>-->
-        <a href="/download-brochure" class="download-brochure">
+        <a href="Kifth Brochure Corrected File final.pdf" class="download-brochure">
     <i class="fas fa-download"></i> Download Brochure
 </a>
         
@@ -463,26 +463,39 @@
                
                 <div class="contact-form">
     <h3>Send Us a Message</h3>
-    <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <input type="text" placeholder="Industry">
-        <input type="text" placeholder="For Bulk upload of items/ alternative for OEM's-Please attach Technical Specification / name plate details">
-        <div class="textarea-container">
-            <textarea placeholder="Your Message" required></textarea>
-            <label for="file-upload" class="attachment-icon">
-                <i class="fas fa-paperclip"></i>
-                <input type="file" id="file-upload" style="display: none;">
-            </label>
-        </div>
-        <div class="contact-item">
-    <div class="contact-icon">
-        <i class="fas fa-envelope"></i>
+    <form id="contactForm" method="POST" enctype="multipart/form-data">
+    <!-- Name Field -->
+    <input type="text" name="name" placeholder="Your Name" required>
+    
+    <!-- Email Field -->
+    <input type="email" name="email" placeholder="Your Email" required>
+    
+    <!-- Industry Field (renamed from Subject) -->
+    <input type="text" name="industry" placeholder="Industry">
+    
+    <!-- Bulk Upload Field -->
+    <input type="text" name="bulk_upload" placeholder="For Bulk upload of items/ alternative for OEM's-Please attach Technical Specification / name plate details">
+    
+    <!-- Message Field with Attachment -->
+    <div class="textarea-container">
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <label for="file-upload" class="attachment-icon">
+            <i class="fas fa-paperclip"></i>
+            <input type="file" id="file-upload" name="attachment" style="display: none;">
+            <span class="file-tooltip" id="file-tooltip"></span>
+        </label>
     </div>
-  
-</div> 
-        <button type="submit" class="btn">Send Message</button>
-    </form>
+    
+    <!-- Contact Icon (unchanged) -->
+    <div class="contact-item">
+        <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+        </div>
+    </div>
+    
+    <!-- Submit Button -->
+    <button type="submit" class="btn">Send Message</button>
+</form>
     <!-- <h3>Send Us a Message</h3>
     <form id="contactForm">
         <input type="text" name="name" placeholder="Your Name" required>
@@ -572,6 +585,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script> <!-- Only if using EmailJS -->
+<script src="script.js"></script>
 </body>
 </html>
